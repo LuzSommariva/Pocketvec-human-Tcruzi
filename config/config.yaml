@@ -1,0 +1,61 @@
+# Pipeline configuration.
+#
+# Relative paths are resolved against the repository root (or against
+# $POCKETVEC_BASE_DIR if set). A second YAML file passed through
+# $POCKETVEC_CONFIG is merged on top of this one (see config/example.yaml).
+
+paths:
+  # One row per human–T. cruzi pair (schema: data/example/targets_example.csv).
+  targets_csv: data/targets.csv
+  # Copy of targets_csv with druggability and cosine-distance columns filled in.
+  results_csv: results/targets_results.csv
+  # Target list read by the pLDDT/PAE pocket QC (07_qc_plddt_pocket.py).
+  qc_targets_csv: data/targets_found_summary.csv
+  # Per-protein preparation output (raw/, processed/, pockets_PD/, ...).
+  preparation_dir: results/1_preparation
+  # Per-protein rDock results and PocketVec fingerprints.
+  pocketvec_dir: results/2_pocketvec
+  # Batch logs, pair distances, plots and QC tables.
+  analysis_dir: results/3_analysis
+  # Output of the MAGL structural case study (src/case_studies/magl/).
+  case_study_dir: results/4_superposicion/MAGL_human_vs_cruzi
+  # Folders searched for locally predicted AlphaFold models before querying AlphaFold DB.
+  local_alphafold_dirs:
+    - data/alphafold_models
+
+chembl:
+  # ChEMBL 37 SQLite dump (not distributed with this repository).
+  db: data/chembl_37/chembl_37_sqlite/chembl_37.db
+  raw_dir: data/raw
+  # Output of notebooks/chembl37_bioactivity_filtering.ipynb.
+  filtered_pkl: data/raw/data_chembl_37_filtrada_31_08_26.pkl
+  # Bulk wwPDB / SIFTS files.
+  sifts: data/bulk_data/pdb_chain_uniprot.csv.gz
+  entries_idx: data/bulk_data/entries.idx
+  # Outputs of the target-selection stage.
+  candidates_csv: results/chembl/chembl_pdb_candidates.csv
+  screening_run_dir: results/chembl/chembl_screening_run
+  target_run_dir: results/chembl/chembl_target_run
+  ranked_csv: results/chembl/targets_ranked.csv
+  top_csv: results/chembl/targets_top30.csv
+
+tools:
+  # Bare names are looked up in PATH; anything with a "/" is treated as a path.
+  fpocket: fpocket
+  prank: prank
+  obabel: obabel
+  check_structure: check_structure
+  # rDock installation directory containing bin/, lib/ and dock.prm.
+  rdock_root: tools/rDock
+  # Optional: MOE protein preparation. Leave empty to use the obabel fallback.
+  moebatch: ""
+  moe_functions: ""
+
+pocketvec:
+  # 128 lead-like molecules distributed with PocketVec (download separately, see README).
+  ligand_library: data/libs/TOP_128_rDock_LLM.sdf
+  ligand_library_order: data/libs/order/TOP_128_rDock_LLM.pkl
+  # rbcavity search radius around the pocket centroid (Å).
+  radius: 12.0
+  # rbdock runs per molecule.
+  nruns: 25

@@ -1,0 +1,11 @@
+# Overrides for the bundled example pair (MAGL, 3PE6 vs. AF-Q4CSM0-F1).
+# Usage: POCKETVEC_CONFIG=config/example.yaml python src/05_run_pocketvec_batch.py
+# (or scripts/run_pipeline.sh --example).
+
+paths:
+  targets_csv: data/example/targets_example.csv
+  qc_targets_csv: data/example/targets_example.csv
+  preparation_dir: data/example/1_preparation
+  pocketvec_dir: data/example/2_pocketvec
+  results_csv: results/example/targets_results.csv
+  analysis_dir: results/example/3_analysis
