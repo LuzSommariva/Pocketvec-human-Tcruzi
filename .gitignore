@@ -1,0 +1,37 @@
+# Pipeline outputs (paths.* in config/config.yaml point here by default)
+results/
+*.log
+.active_protein
+
+# Python / Jupyter
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/
+
+# Large or third-party inputs that are downloaded separately (see README)
+data/raw/
+data/bulk_data/
+data/chembl_37/
+data/libs/
+data/alphafold_models/
+data/homolog_search/
+tools/
+
+# Downloaded structures, pocket files and docking results
+# (only the bundled example pair is versioned)
+*.pdb
+*.cif
+*.mol2
+*.pqr
+*.sd
+*.sdf
+*.grd
+*.as
+*.pkl
+*.pse
+!data/example/**
