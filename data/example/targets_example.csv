@@ -1,0 +1,2 @@
+target_id,target_name,pdb_id_human,human_uniprot,human_pdb_code,human_chain,ligand_for_centroid__DEPRECATED_unused,ligand_chains,ligands_to_remove,bioactivity_source,cruzi_uniprot,cruzi_af_status,cruzi_af_code,cruzi_name,pair_id,pocket_druggability_HUMAN,pocket_druggability_CRUZI,pocket_simple_flag,selected_for_deep_dive,notes
+1,MAGL,3PE6,P97612,3PE6,A,ZYH,A;B,HOH;ZYH,chembl,Q4CSM0,found,AF-Q4CSM0-F1,MAGL_TCRUZI_AF_V6,pair_001,0.975,,yes,yes,"Ya curada en ChEMBL, target elegido para deep dive"
